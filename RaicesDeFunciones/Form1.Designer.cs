@@ -49,6 +49,11 @@
             this.metodoUtilizado = new System.Windows.Forms.Label();
             this.labelRaiz = new System.Windows.Forms.Label();
             this.labelCantInteracion = new System.Windows.Forms.Label();
+            this.buttonLimpiar = new System.Windows.Forms.Button();
+            this.textBoxRaiz = new System.Windows.Forms.TextBox();
+            this.labelConverge = new System.Windows.Forms.Label();
+            this.textBoxConverge = new System.Windows.Forms.TextBox();
+            this.textBoxCantIteracion = new System.Windows.Forms.TextBox();
             this.groupBoxEntrada.SuspendLayout();
             this.groupBoxSalida.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +92,9 @@
             this.comboMetodos.FormattingEnabled = true;
             this.comboMetodos.Items.AddRange(new object[] {
             "Bisección",
-            "Regla falsa"});
+            "Regla falsa",
+            "Tangente",
+            "Secante"});
             this.comboMetodos.Location = new System.Drawing.Point(667, 43);
             this.comboMetodos.Name = "comboMetodos";
             this.comboMetodos.Size = new System.Drawing.Size(121, 24);
@@ -106,7 +113,7 @@
             this.textIteracion.Name = "textIteracion";
             this.textIteracion.Size = new System.Drawing.Size(142, 22);
             this.textIteracion.TabIndex = 6;
-            this.textIteracion.Text = "5";
+            this.textIteracion.Text = "25";
             // 
             // textTolerancia
             // 
@@ -215,6 +222,10 @@
             // 
             // groupBoxSalida
             // 
+            this.groupBoxSalida.Controls.Add(this.textBoxCantIteracion);
+            this.groupBoxSalida.Controls.Add(this.textBoxConverge);
+            this.groupBoxSalida.Controls.Add(this.labelConverge);
+            this.groupBoxSalida.Controls.Add(this.textBoxRaiz);
             this.groupBoxSalida.Controls.Add(this.labelCantInteracion);
             this.groupBoxSalida.Controls.Add(this.metodoUtilizado);
             this.groupBoxSalida.Controls.Add(this.labelRaiz);
@@ -252,11 +263,52 @@
             this.labelCantInteracion.TabIndex = 2;
             this.labelCantInteracion.Text = "Cant. Iteraciones:";
             // 
+            // buttonLimpiar
+            // 
+            this.buttonLimpiar.Location = new System.Drawing.Point(622, 408);
+            this.buttonLimpiar.Name = "buttonLimpiar";
+            this.buttonLimpiar.Size = new System.Drawing.Size(80, 30);
+            this.buttonLimpiar.TabIndex = 14;
+            this.buttonLimpiar.Text = "Limpiar";
+            this.buttonLimpiar.UseVisualStyleBackColor = true;
+            this.buttonLimpiar.Click += new System.EventHandler(this.buttonLimpiar_Click);
+            // 
+            // textBoxRaiz
+            // 
+            this.textBoxRaiz.Location = new System.Drawing.Point(378, 66);
+            this.textBoxRaiz.Name = "textBoxRaiz";
+            this.textBoxRaiz.Size = new System.Drawing.Size(100, 22);
+            this.textBoxRaiz.TabIndex = 3;
+            // 
+            // labelConverge
+            // 
+            this.labelConverge.AutoSize = true;
+            this.labelConverge.Location = new System.Drawing.Point(288, 32);
+            this.labelConverge.Name = "labelConverge";
+            this.labelConverge.Size = new System.Drawing.Size(69, 16);
+            this.labelConverge.TabIndex = 4;
+            this.labelConverge.Text = "Converge:";
+            // 
+            // textBoxConverge
+            // 
+            this.textBoxConverge.Location = new System.Drawing.Point(378, 25);
+            this.textBoxConverge.Name = "textBoxConverge";
+            this.textBoxConverge.Size = new System.Drawing.Size(100, 22);
+            this.textBoxConverge.TabIndex = 5;
+            // 
+            // textBoxCantIteracion
+            // 
+            this.textBoxCantIteracion.Location = new System.Drawing.Point(128, 65);
+            this.textBoxCantIteracion.Name = "textBoxCantIteracion";
+            this.textBoxCantIteracion.Size = new System.Drawing.Size(100, 22);
+            this.textBoxCantIteracion.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.groupBoxSalida);
             this.Controls.Add(this.groupBoxEntrada);
             this.Controls.Add(this.buttonVolver);
@@ -299,6 +351,11 @@
         private System.Windows.Forms.Label labelRaiz;
         private System.Windows.Forms.Label metodoUtilizado;
         private System.Windows.Forms.Label labelCantInteracion;
+        private System.Windows.Forms.Button buttonLimpiar;
+        private System.Windows.Forms.TextBox textBoxRaiz;
+        private System.Windows.Forms.TextBox textBoxConverge;
+        private System.Windows.Forms.Label labelConverge;
+        private System.Windows.Forms.TextBox textBoxCantIteracion;
     }
 }
 

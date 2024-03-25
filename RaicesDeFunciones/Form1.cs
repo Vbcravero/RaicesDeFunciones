@@ -29,65 +29,131 @@ namespace RaicesDeFunciones
             //metodo = listaMetodos.SelectedValue.ToString();
             metodo = comboMetodos.Text;
             funcion = textFuncion.Text;
-            double xi,xd,fx,xr, tolerancia;
-            int cantIteracion;
+            double xi,xd,fx,xr,tolerancia,xrAnt,error;
+            xr = 0;
+            xrAnt = 0;
+            error = 0;
+            int iteraciones,cantIteracion;
             xi = Convert.ToDouble(textXi.Text);
             xd = Convert.ToDouble(textXd.Text);
-            cantIteracion = Convert.ToInt32(textIteracion.Text);
+            iteraciones = Convert.ToInt32(textIteracion.Text);
             tolerancia = Convert.ToDouble(textTolerancia.Text);
+            int i;
+            i = 0;
+            cantIteracion = 0;
 
+            // Comprobar campos vacíos
             if (analizadorFuncion.Sintaxis(funcion, 'x')) 
             {
-                fx = analizadorFuncion.EvaluaFx(xi) * analizadorFuncion.EvaluaFx(xd);
-                this.metodo.Text = fx+"";
-                // Evaluar fx
-                if (fx > 0)
+                if (metodo == "Bisección" || metodo == "Regla falsa")
                 {
-                    MessageBox.Show(string.Format("El intervalo [{0},{1}] no contiene a la raíz. Volver a ingresar xi y xd", xi, xd));
-                    //Limpia los textBox
-                    textXi.Clear();
-                    textXd.Clear();
-                }
-                else if (fx == 0) // debe cortar
-                {
-                    if (analizadorFuncion.EvaluaFx(xi) == 0)
+                    fx = analizadorFuncion.EvaluaFx(xi) * analizadorFuncion.EvaluaFx(xd);
+                    this.metodo.Text = fx+"";
+                    // Evaluar fx
+                    if (fx > 0)
                     {
-                        //Asignar a xr xi y mostrar el valor en la salida
-                        MessageBox.Show("xi = " + xi + ", es raíz", "Ejecución exitosa");
+                        MessageBox.Show(string.Format("El intervalo [{0},{1}] no contiene a la raíz. Volver a ingresar xi y xd", xi, xd));
+                        //Limpia los textBox
+                        textXi.Clear();
+                        textXd.Clear();
                     }
-                    else
+                    else if (fx == 0) // debe cortar
                     {
-                        MessageBox.Show("xd = " + xd + ", es raíz", "Ejecución exitosa");
-                    }
-                }
-                else // fx < 0
-                {
-                    double xrAnt,error;
-                    xr = 0;
-                    xrAnt = 0;
-                    for (int i = 0; i < cantIteracion; i++)
-                    {
-                        //llamar a método calcularXr y a método calcularError
-                        xr = metodoRaiz.CalcularXr(metodo, funcion, xi, xd);
-                        error = metodoRaiz.CalcularError(xr, xrAnt);
-
-                        if (Math.Abs(analizadorFuncion.EvaluaFx(xr)) < tolerancia || error < tolerancia) //Debe cortar
+                        if (analizadorFuncion.EvaluaFx(xi) == 0)
                         {
-                            MessageBox.Show("xr = " + xr + ", es raíz", "Ejecución exitosa");
-                            break;
-                        } 
-                        else if (analizadorFuncion.EvaluaFx(xi) * analizadorFuncion.EvaluaFx(xr) > 0)
-                        {
-                            xi = xr;
+                            //Asignar xi y xd al textbox de raíz
+                            textBoxRaiz.Text = xi.ToString();
+                            textBoxConverge.Text = "Si";
+                            MessageBox.Show("xi = " + xi + ", es raíz", "Ejecución exitosa");
                         }
                         else
                         {
-                            xd = xr;
+                            textBoxRaiz.Text = xd.ToString();
+                            textBoxConverge.Text = "Si";
+                            MessageBox.Show("xd = " + xd + ", es raíz", "Ejecución exitosa");
                         }
-                        xrAnt = xr;
                     }
-                    //devolver xr como raíz, iteraciones y error
-                    MessageBox.Show("Xr = " + xr + ", es raíz porque se superó la cantidad de iteraciones","Ejecución finalizada");
+                    else // fx < 0
+                    {
+                        for (i = 0; i < iteraciones; i++)
+                        {
+                            cantIteracion = cantIteracion + 1;
+
+                            //llamar a método calcularXr y a método calcularError
+                            xr = metodoRaiz.CalcularXr(metodo, funcion, xi, xd);
+                            error = metodoRaiz.CalcularError(xr, xrAnt);
+
+                            if (Math.Abs(analizadorFuncion.EvaluaFx(xr)) < tolerancia || error < tolerancia) //Debe cortar
+                            {
+                                MessageBox.Show("xr = " + xr + " es raíz", "Ejecución exitosa");
+                                textBoxRaiz.Text = xr.ToString();
+                                textBoxConverge.Text = "Si";
+                                textBoxCantIteracion.Text = cantIteracion.ToString();
+                                break;
+                            } 
+                            else if (analizadorFuncion.EvaluaFx(xi) * analizadorFuncion.EvaluaFx(xr) > 0)
+                            {
+                                xi = xr;
+                            }
+                            else
+                            {
+                                xd = xr;
+                            }
+                            xrAnt = xr;
+                        }
+                        //devolver xr como raíz, iteraciones y error
+                        //textBoxRaiz.Text = xr.ToString();
+                        //textBoxConverge.Text = "Si";
+                        //MessageBox.Show("Xr = " + xr + ", es raíz porque se superó la cantidad de iteraciones","Ejecución finalizada");   
+                    }
+                    //textBoxRaiz.Text = xr.ToString();
+                    //textBoxConverge.Text = "Si";
+                    //MessageBox.Show("Xr = " + xr + ", es raíz porque se superó la cantidad de iteraciones", "Ejecución finalizada");
+                }
+                else // método == Tangente || método == Secante
+                {
+                    if (Math.Abs(analizadorFuncion.EvaluaFx(xi)) < tolerancia)
+                    {
+                        textBoxRaiz.Text = xi.ToString();
+                        MessageBox.Show("xi = " + xi + ", es raíz", "Ejecución exitosa");
+                    }
+                    else if (metodo == "Secante" && Math.Abs(analizadorFuncion.EvaluaFx(xd)) < tolerancia)
+                    {
+                        textBoxRaiz.Text = xd.ToString();
+                        MessageBox.Show("xd = " + xd + ", es raíz", "Ejecución exitosa");
+                    }
+                    else
+                    {
+                        for(i = 0; i < iteraciones; i++)
+                        {
+                            xr = metodoRaiz.CalcularXr(metodo, funcion, xi, xd);
+                            if (double.IsNaN(xr))
+                            {
+                                MessageBox.Show("El método es divergente. No encuentra raíz");
+                                textBoxConverge.Text = "No";
+                                break;
+                            }
+                            error = metodoRaiz.CalcularError(xr, xrAnt);
+                            if (Math.Abs(analizadorFuncion.EvaluaFx(xr)) < tolerancia || error < tolerancia)
+                            {
+                                MessageBox.Show("xr = " + xr + ", es raíz", "Ejecución exitosa");
+                                textBoxRaiz.Text = xr.ToString();
+                                break;
+                            }
+                            else if (metodo == "Tangente")
+                            {
+                                xi = xr;
+                            }
+                            else
+                            {
+                                xi = xd;
+                                xd = xr;
+                            }
+                            xrAnt = xr;
+                        }
+                        MessageBox.Show("Xr = " + xr + ", es raíz porque se superó la cantidad de iteraciones", "Ejecución finalizada");
+                        textBoxRaiz.Text = xr.ToString();
+                    }
                 }
             }
             else
@@ -102,6 +168,12 @@ namespace RaicesDeFunciones
             Inicio irInicio = new Inicio();
             irInicio.Show();
             this.Hide();
+        }
+
+        private void buttonLimpiar_Click(object sender, EventArgs e)
+        {
+            // Agregar clear
+            // Iniciar todas las variables en 0
         }
     }
 }

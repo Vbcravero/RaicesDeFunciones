@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace RaicesDeFunciones
 {
-    internal class MetodoRaiz
+    internal class MetodoRaiz : Calculo
     {
-        Calculo calculo = new Calculo();
+        //Calculo calculo = new Calculo();
         public double CalcularError (double xr, double xrAnt)
         {
             double error;
@@ -27,12 +27,13 @@ namespace RaicesDeFunciones
             }
             else if (metodo == "Regla falsa"  || metodo == "Secante")
             {
-                xr = (calculo.EvaluaFx(xd)* xi - calculo.EvaluaFx(xi) * xd) / calculo.EvaluaFx(xd) - calculo.EvaluaFx(xi);
+                //xr = (calculo.EvaluaFx(xd)* xi - calculo.EvaluaFx(xi) * xd) / (calculo.EvaluaFx(xd) - calculo.EvaluaFx(xi));
+                xr = (EvaluaFx(xd) * xi - EvaluaFx(xi) * xd) / (EvaluaFx(xd) - EvaluaFx(xi));
             }
             else  //metodo == "Tangente"
             {
-                double derivada;
-                derivada = calculo.Dx(xi);
+                double derivada = 0;
+                derivada = Dx(xi);
                 if (derivada < 0.0001 || double.IsNaN(derivada)) // pasar tolerancia como parámetro
                 {
                     //MessageBox.Show("El método diverge. No encuentra raíz");
@@ -40,7 +41,7 @@ namespace RaicesDeFunciones
                 }
                 else
                 {
-                    xr = (xi - calculo.EvaluaFx(xi)) / calculo.Dx(xi);
+                    xr = (xi - EvaluaFx(xi)) / derivada;
                 }
                 
             }
