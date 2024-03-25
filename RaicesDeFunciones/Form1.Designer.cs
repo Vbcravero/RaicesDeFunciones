@@ -48,6 +48,7 @@
             this.groupBoxSalida = new System.Windows.Forms.GroupBox();
             this.metodoUtilizado = new System.Windows.Forms.Label();
             this.labelRaiz = new System.Windows.Forms.Label();
+            this.labelCantInteracion = new System.Windows.Forms.Label();
             this.groupBoxEntrada.SuspendLayout();
             this.groupBoxSalida.SuspendLayout();
             this.SuspendLayout();
@@ -214,6 +215,7 @@
             // 
             // groupBoxSalida
             // 
+            this.groupBoxSalida.Controls.Add(this.labelCantInteracion);
             this.groupBoxSalida.Controls.Add(this.metodoUtilizado);
             this.groupBoxSalida.Controls.Add(this.labelRaiz);
             this.groupBoxSalida.Location = new System.Drawing.Point(15, 209);
@@ -226,7 +228,7 @@
             // metodoUtilizado
             // 
             this.metodoUtilizado.AutoSize = true;
-            this.metodoUtilizado.Location = new System.Drawing.Point(25, 40);
+            this.metodoUtilizado.Location = new System.Drawing.Point(9, 32);
             this.metodoUtilizado.Name = "metodoUtilizado";
             this.metodoUtilizado.Size = new System.Drawing.Size(112, 16);
             this.metodoUtilizado.TabIndex = 1;
@@ -235,11 +237,20 @@
             // labelRaiz
             // 
             this.labelRaiz.AutoSize = true;
-            this.labelRaiz.Location = new System.Drawing.Point(171, 68);
+            this.labelRaiz.Location = new System.Drawing.Point(288, 69);
             this.labelRaiz.Name = "labelRaiz";
             this.labelRaiz.Size = new System.Drawing.Size(65, 16);
             this.labelRaiz.TabIndex = 0;
             this.labelRaiz.Text = "Raíz (xr) =";
+            // 
+            // labelCantInteracion
+            // 
+            this.labelCantInteracion.AutoSize = true;
+            this.labelCantInteracion.Location = new System.Drawing.Point(12, 68);
+            this.labelCantInteracion.Name = "labelCantInteracion";
+            this.labelCantInteracion.Size = new System.Drawing.Size(109, 16);
+            this.labelCantInteracion.TabIndex = 2;
+            this.labelCantInteracion.Text = "Cant. Iteraciones:";
             // 
             // Form1
             // 
@@ -287,6 +298,7 @@
         private System.Windows.Forms.GroupBox groupBoxSalida;
         private System.Windows.Forms.Label labelRaiz;
         private System.Windows.Forms.Label metodoUtilizado;
+        private System.Windows.Forms.Label labelCantInteracion;
     }
 }
 
