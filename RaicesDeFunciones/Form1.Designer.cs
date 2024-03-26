@@ -46,14 +46,17 @@
             this.labelIteracionesMax = new System.Windows.Forms.Label();
             this.labelFuncion = new System.Windows.Forms.Label();
             this.groupBoxSalida = new System.Windows.Forms.GroupBox();
+            this.textBoxMetodo = new System.Windows.Forms.TextBox();
+            this.textBoxCantIteracion = new System.Windows.Forms.TextBox();
+            this.textBoxConverge = new System.Windows.Forms.TextBox();
+            this.labelConverge = new System.Windows.Forms.Label();
+            this.textBoxRaiz = new System.Windows.Forms.TextBox();
+            this.labelCantInteracion = new System.Windows.Forms.Label();
             this.metodoUtilizado = new System.Windows.Forms.Label();
             this.labelRaiz = new System.Windows.Forms.Label();
-            this.labelCantInteracion = new System.Windows.Forms.Label();
             this.buttonLimpiar = new System.Windows.Forms.Button();
-            this.textBoxRaiz = new System.Windows.Forms.TextBox();
-            this.labelConverge = new System.Windows.Forms.Label();
-            this.textBoxConverge = new System.Windows.Forms.TextBox();
-            this.textBoxCantIteracion = new System.Windows.Forms.TextBox();
+            this.labelError = new System.Windows.Forms.Label();
+            this.textBoxError = new System.Windows.Forms.TextBox();
             this.groupBoxEntrada.SuspendLayout();
             this.groupBoxSalida.SuspendLayout();
             this.SuspendLayout();
@@ -222,6 +225,9 @@
             // 
             // groupBoxSalida
             // 
+            this.groupBoxSalida.Controls.Add(this.textBoxError);
+            this.groupBoxSalida.Controls.Add(this.labelError);
+            this.groupBoxSalida.Controls.Add(this.textBoxMetodo);
             this.groupBoxSalida.Controls.Add(this.textBoxCantIteracion);
             this.groupBoxSalida.Controls.Add(this.textBoxConverge);
             this.groupBoxSalida.Controls.Add(this.labelConverge);
@@ -235,6 +241,52 @@
             this.groupBoxSalida.TabIndex = 13;
             this.groupBoxSalida.TabStop = false;
             this.groupBoxSalida.Text = "Resultado";
+            // 
+            // textBoxMetodo
+            // 
+            this.textBoxMetodo.Location = new System.Drawing.Point(128, 29);
+            this.textBoxMetodo.Name = "textBoxMetodo";
+            this.textBoxMetodo.Size = new System.Drawing.Size(100, 22);
+            this.textBoxMetodo.TabIndex = 7;
+            // 
+            // textBoxCantIteracion
+            // 
+            this.textBoxCantIteracion.Location = new System.Drawing.Point(128, 65);
+            this.textBoxCantIteracion.Name = "textBoxCantIteracion";
+            this.textBoxCantIteracion.Size = new System.Drawing.Size(100, 22);
+            this.textBoxCantIteracion.TabIndex = 6;
+            // 
+            // textBoxConverge
+            // 
+            this.textBoxConverge.Location = new System.Drawing.Point(378, 25);
+            this.textBoxConverge.Name = "textBoxConverge";
+            this.textBoxConverge.Size = new System.Drawing.Size(100, 22);
+            this.textBoxConverge.TabIndex = 5;
+            // 
+            // labelConverge
+            // 
+            this.labelConverge.AutoSize = true;
+            this.labelConverge.Location = new System.Drawing.Point(288, 32);
+            this.labelConverge.Name = "labelConverge";
+            this.labelConverge.Size = new System.Drawing.Size(69, 16);
+            this.labelConverge.TabIndex = 4;
+            this.labelConverge.Text = "Converge:";
+            // 
+            // textBoxRaiz
+            // 
+            this.textBoxRaiz.Location = new System.Drawing.Point(378, 66);
+            this.textBoxRaiz.Name = "textBoxRaiz";
+            this.textBoxRaiz.Size = new System.Drawing.Size(100, 22);
+            this.textBoxRaiz.TabIndex = 3;
+            // 
+            // labelCantInteracion
+            // 
+            this.labelCantInteracion.AutoSize = true;
+            this.labelCantInteracion.Location = new System.Drawing.Point(12, 68);
+            this.labelCantInteracion.Name = "labelCantInteracion";
+            this.labelCantInteracion.Size = new System.Drawing.Size(109, 16);
+            this.labelCantInteracion.TabIndex = 2;
+            this.labelCantInteracion.Text = "Cant. Iteraciones:";
             // 
             // metodoUtilizado
             // 
@@ -254,15 +306,6 @@
             this.labelRaiz.TabIndex = 0;
             this.labelRaiz.Text = "Raíz (xr) =";
             // 
-            // labelCantInteracion
-            // 
-            this.labelCantInteracion.AutoSize = true;
-            this.labelCantInteracion.Location = new System.Drawing.Point(12, 68);
-            this.labelCantInteracion.Name = "labelCantInteracion";
-            this.labelCantInteracion.Size = new System.Drawing.Size(109, 16);
-            this.labelCantInteracion.TabIndex = 2;
-            this.labelCantInteracion.Text = "Cant. Iteraciones:";
-            // 
             // buttonLimpiar
             // 
             this.buttonLimpiar.Location = new System.Drawing.Point(622, 408);
@@ -273,35 +316,21 @@
             this.buttonLimpiar.UseVisualStyleBackColor = true;
             this.buttonLimpiar.Click += new System.EventHandler(this.buttonLimpiar_Click);
             // 
-            // textBoxRaiz
+            // labelError
             // 
-            this.textBoxRaiz.Location = new System.Drawing.Point(378, 66);
-            this.textBoxRaiz.Name = "textBoxRaiz";
-            this.textBoxRaiz.Size = new System.Drawing.Size(100, 22);
-            this.textBoxRaiz.TabIndex = 3;
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(12, 110);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(86, 16);
+            this.labelError.TabIndex = 8;
+            this.labelError.Text = "Error relativo:";
             // 
-            // labelConverge
+            // textBoxError
             // 
-            this.labelConverge.AutoSize = true;
-            this.labelConverge.Location = new System.Drawing.Point(288, 32);
-            this.labelConverge.Name = "labelConverge";
-            this.labelConverge.Size = new System.Drawing.Size(69, 16);
-            this.labelConverge.TabIndex = 4;
-            this.labelConverge.Text = "Converge:";
-            // 
-            // textBoxConverge
-            // 
-            this.textBoxConverge.Location = new System.Drawing.Point(378, 25);
-            this.textBoxConverge.Name = "textBoxConverge";
-            this.textBoxConverge.Size = new System.Drawing.Size(100, 22);
-            this.textBoxConverge.TabIndex = 5;
-            // 
-            // textBoxCantIteracion
-            // 
-            this.textBoxCantIteracion.Location = new System.Drawing.Point(128, 65);
-            this.textBoxCantIteracion.Name = "textBoxCantIteracion";
-            this.textBoxCantIteracion.Size = new System.Drawing.Size(100, 22);
-            this.textBoxCantIteracion.TabIndex = 6;
+            this.textBoxError.Location = new System.Drawing.Point(127, 104);
+            this.textBoxError.Name = "textBoxError";
+            this.textBoxError.Size = new System.Drawing.Size(351, 22);
+            this.textBoxError.TabIndex = 9;
             // 
             // Form1
             // 
@@ -356,6 +385,9 @@
         private System.Windows.Forms.TextBox textBoxConverge;
         private System.Windows.Forms.Label labelConverge;
         private System.Windows.Forms.TextBox textBoxCantIteracion;
+        private System.Windows.Forms.TextBox textBoxMetodo;
+        private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.TextBox textBoxError;
     }
 }
 
