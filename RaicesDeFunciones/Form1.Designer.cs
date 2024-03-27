@@ -37,8 +37,6 @@
             this.textTolerancia = new System.Windows.Forms.TextBox();
             this.textXi = new System.Windows.Forms.TextBox();
             this.textXd = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonVolver = new System.Windows.Forms.Button();
             this.groupBoxEntrada = new System.Windows.Forms.GroupBox();
             this.labelXd = new System.Windows.Forms.Label();
             this.labelTolerancia = new System.Windows.Forms.Label();
@@ -46,6 +44,8 @@
             this.labelIteracionesMax = new System.Windows.Forms.Label();
             this.labelFuncion = new System.Windows.Forms.Label();
             this.groupBoxSalida = new System.Windows.Forms.GroupBox();
+            this.textBoxError = new System.Windows.Forms.TextBox();
+            this.labelError = new System.Windows.Forms.Label();
             this.textBoxMetodo = new System.Windows.Forms.TextBox();
             this.textBoxCantIteracion = new System.Windows.Forms.TextBox();
             this.textBoxConverge = new System.Windows.Forms.TextBox();
@@ -55,8 +55,6 @@
             this.metodoUtilizado = new System.Windows.Forms.Label();
             this.labelRaiz = new System.Windows.Forms.Label();
             this.buttonLimpiar = new System.Windows.Forms.Button();
-            this.labelError = new System.Windows.Forms.Label();
-            this.textBoxError = new System.Windows.Forms.TextBox();
             this.groupBoxEntrada.SuspendLayout();
             this.groupBoxSalida.SuspendLayout();
             this.SuspendLayout();
@@ -64,10 +62,11 @@
             // titulo
             // 
             this.titulo.AutoSize = true;
-            this.titulo.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titulo.Location = new System.Drawing.Point(606, 277);
+            this.titulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titulo.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.titulo.Location = new System.Drawing.Point(297, 9);
             this.titulo.Name = "titulo";
-            this.titulo.Size = new System.Drawing.Size(148, 17);
+            this.titulo.Size = new System.Drawing.Size(229, 23);
             this.titulo.TabIndex = 0;
             this.titulo.Text = "RAÍCES DE FUNCIONES";
             // 
@@ -84,7 +83,7 @@
             // metodo
             // 
             this.metodo.AutoSize = true;
-            this.metodo.Location = new System.Drawing.Point(606, 48);
+            this.metodo.Location = new System.Drawing.Point(602, 73);
             this.metodo.Name = "metodo";
             this.metodo.Size = new System.Drawing.Size(56, 16);
             this.metodo.TabIndex = 2;
@@ -98,7 +97,7 @@
             "Regla falsa",
             "Tangente",
             "Secante"});
-            this.comboMetodos.Location = new System.Drawing.Point(667, 43);
+            this.comboMetodos.Location = new System.Drawing.Point(663, 68);
             this.comboMetodos.Name = "comboMetodos";
             this.comboMetodos.Size = new System.Drawing.Size(121, 24);
             this.comboMetodos.TabIndex = 4;
@@ -116,7 +115,7 @@
             this.textIteracion.Name = "textIteracion";
             this.textIteracion.Size = new System.Drawing.Size(142, 22);
             this.textIteracion.TabIndex = 6;
-            this.textIteracion.Text = "25";
+            this.textIteracion.Text = "100";
             // 
             // textTolerancia
             // 
@@ -140,25 +139,6 @@
             this.textXd.Size = new System.Drawing.Size(142, 22);
             this.textXd.TabIndex = 9;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(642, 159);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "label1";
-            // 
-            // buttonVolver
-            // 
-            this.buttonVolver.Location = new System.Drawing.Point(15, 415);
-            this.buttonVolver.Name = "buttonVolver";
-            this.buttonVolver.Size = new System.Drawing.Size(75, 23);
-            this.buttonVolver.TabIndex = 11;
-            this.buttonVolver.Text = "Volver";
-            this.buttonVolver.UseVisualStyleBackColor = true;
-            this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
-            // 
             // groupBoxEntrada
             // 
             this.groupBoxEntrada.Controls.Add(this.labelXd);
@@ -171,9 +151,9 @@
             this.groupBoxEntrada.Controls.Add(this.textTolerancia);
             this.groupBoxEntrada.Controls.Add(this.textXd);
             this.groupBoxEntrada.Controls.Add(this.textXi);
-            this.groupBoxEntrada.Location = new System.Drawing.Point(15, 21);
+            this.groupBoxEntrada.Location = new System.Drawing.Point(15, 49);
             this.groupBoxEntrada.Name = "groupBoxEntrada";
-            this.groupBoxEntrada.Size = new System.Drawing.Size(570, 181);
+            this.groupBoxEntrada.Size = new System.Drawing.Size(570, 170);
             this.groupBoxEntrada.TabIndex = 12;
             this.groupBoxEntrada.TabStop = false;
             this.groupBoxEntrada.Text = "Datos de Entrada";
@@ -235,32 +215,48 @@
             this.groupBoxSalida.Controls.Add(this.labelCantInteracion);
             this.groupBoxSalida.Controls.Add(this.metodoUtilizado);
             this.groupBoxSalida.Controls.Add(this.labelRaiz);
-            this.groupBoxSalida.Location = new System.Drawing.Point(15, 209);
+            this.groupBoxSalida.Location = new System.Drawing.Point(15, 228);
             this.groupBoxSalida.Name = "groupBoxSalida";
-            this.groupBoxSalida.Size = new System.Drawing.Size(571, 181);
+            this.groupBoxSalida.Size = new System.Drawing.Size(571, 170);
             this.groupBoxSalida.TabIndex = 13;
             this.groupBoxSalida.TabStop = false;
             this.groupBoxSalida.Text = "Resultado";
+            // 
+            // textBoxError
+            // 
+            this.textBoxError.Location = new System.Drawing.Point(127, 104);
+            this.textBoxError.Name = "textBoxError";
+            this.textBoxError.Size = new System.Drawing.Size(384, 22);
+            this.textBoxError.TabIndex = 9;
+            // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(10, 110);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(86, 16);
+            this.labelError.TabIndex = 8;
+            this.labelError.Text = "Error relativo:";
             // 
             // textBoxMetodo
             // 
             this.textBoxMetodo.Location = new System.Drawing.Point(128, 29);
             this.textBoxMetodo.Name = "textBoxMetodo";
-            this.textBoxMetodo.Size = new System.Drawing.Size(100, 22);
+            this.textBoxMetodo.Size = new System.Drawing.Size(142, 22);
             this.textBoxMetodo.TabIndex = 7;
             // 
             // textBoxCantIteracion
             // 
             this.textBoxCantIteracion.Location = new System.Drawing.Point(128, 65);
             this.textBoxCantIteracion.Name = "textBoxCantIteracion";
-            this.textBoxCantIteracion.Size = new System.Drawing.Size(100, 22);
+            this.textBoxCantIteracion.Size = new System.Drawing.Size(142, 22);
             this.textBoxCantIteracion.TabIndex = 6;
             // 
             // textBoxConverge
             // 
-            this.textBoxConverge.Location = new System.Drawing.Point(378, 25);
+            this.textBoxConverge.Location = new System.Drawing.Point(369, 29);
             this.textBoxConverge.Name = "textBoxConverge";
-            this.textBoxConverge.Size = new System.Drawing.Size(100, 22);
+            this.textBoxConverge.Size = new System.Drawing.Size(142, 22);
             this.textBoxConverge.TabIndex = 5;
             // 
             // labelConverge
@@ -274,15 +270,15 @@
             // 
             // textBoxRaiz
             // 
-            this.textBoxRaiz.Location = new System.Drawing.Point(378, 66);
+            this.textBoxRaiz.Location = new System.Drawing.Point(369, 66);
             this.textBoxRaiz.Name = "textBoxRaiz";
-            this.textBoxRaiz.Size = new System.Drawing.Size(100, 22);
+            this.textBoxRaiz.Size = new System.Drawing.Size(142, 22);
             this.textBoxRaiz.TabIndex = 3;
             // 
             // labelCantInteracion
             // 
             this.labelCantInteracion.AutoSize = true;
-            this.labelCantInteracion.Location = new System.Drawing.Point(12, 68);
+            this.labelCantInteracion.Location = new System.Drawing.Point(9, 68);
             this.labelCantInteracion.Name = "labelCantInteracion";
             this.labelCantInteracion.Size = new System.Drawing.Size(109, 16);
             this.labelCantInteracion.TabIndex = 2;
@@ -316,22 +312,6 @@
             this.buttonLimpiar.UseVisualStyleBackColor = true;
             this.buttonLimpiar.Click += new System.EventHandler(this.buttonLimpiar_Click);
             // 
-            // labelError
-            // 
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(12, 110);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(86, 16);
-            this.labelError.TabIndex = 8;
-            this.labelError.Text = "Error relativo:";
-            // 
-            // textBoxError
-            // 
-            this.textBoxError.Location = new System.Drawing.Point(127, 104);
-            this.textBoxError.Name = "textBoxError";
-            this.textBoxError.Size = new System.Drawing.Size(351, 22);
-            this.textBoxError.TabIndex = 9;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,8 +320,6 @@
             this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.groupBoxSalida);
             this.Controls.Add(this.groupBoxEntrada);
-            this.Controls.Add(this.buttonVolver);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.comboMetodos);
             this.Controls.Add(this.metodo);
             this.Controls.Add(this.buttonCalcular);
@@ -368,8 +346,6 @@
         private System.Windows.Forms.TextBox textTolerancia;
         private System.Windows.Forms.TextBox textXi;
         private System.Windows.Forms.TextBox textXd;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonVolver;
         private System.Windows.Forms.GroupBox groupBoxEntrada;
         private System.Windows.Forms.Label labelTolerancia;
         private System.Windows.Forms.Label labelIteracionesMax;
