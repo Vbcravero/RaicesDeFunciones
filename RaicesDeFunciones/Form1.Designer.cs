@@ -101,6 +101,7 @@
             this.comboMetodos.Name = "comboMetodos";
             this.comboMetodos.Size = new System.Drawing.Size(121, 24);
             this.comboMetodos.TabIndex = 4;
+            this.comboMetodos.SelectedIndexChanged += new System.EventHandler(this.comboMetodos_SelectedIndexChanged);
             // 
             // textFuncion
             // 

@@ -24,26 +24,19 @@ namespace RaicesDeFunciones
         private void buttonCalcular_Click(object sender, EventArgs e)
         {
             // Controlar campos vacíos
-            if (string.IsNullOrEmpty(textFuncion.Text) || string.IsNullOrEmpty(textXi.Text) || string.IsNullOrEmpty(textXd.Text) || comboMetodos.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(textFuncion.Text) || string.IsNullOrEmpty(textXi.Text) || (string.IsNullOrEmpty(textXd.Text) && comboMetodos.SelectedItem.ToString() != "Tangente") || comboMetodos.SelectedIndex == -1)
             {
                 MessageBox.Show("Asegúrese de completar todos los datos de entrada","Campos vacíos");
             }
             else
             {
-                // Declaración y asignación de variables
-                string metodo,funcion;
+                //Declaración y asignación de variables
+                string metodo, funcion;
                 metodo = comboMetodos.Text;
                 funcion = textFuncion.Text;
-
-                //Desahbilita textbox de xd cuando el método es Tangente
-                //if (metodo == "Tangente")
-                //{
-                //    textXd.Enabled = false;
-                //}
-
                 double fx,xi,xd,xr,tolerancia,xrAnt,error;
                 xi = Convert.ToDouble(textXi.Text);
-                xd = Convert.ToDouble(textXd.Text);
+                xd = string.IsNullOrEmpty(textXd.Text) ? 0 : Convert.ToDouble(textXd.Text);
                 tolerancia = Convert.ToDouble(textTolerancia.Text) * 0.01 / 100;
                 xr = 0;
                 xrAnt = 0;
@@ -67,7 +60,7 @@ namespace RaicesDeFunciones
                             textXi.Clear();
                             textXd.Clear();
                         }
-                        else if (fx == 0) // debe cortar
+                        else if (fx == 0) //xi o xd es raíz
                         {
                             if (analizaFuncion.EvaluaFx(xi) == 0)
                             {
@@ -207,7 +200,19 @@ namespace RaicesDeFunciones
             textBoxCantIteracion.Clear();
             textBoxRaiz.Clear();
             textBoxError.Clear();
+            textXd.Enabled = true;
         }
 
+        private void comboMetodos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboMetodos.SelectedItem != null) //&& textXd != null)
+            {
+                if (comboMetodos.SelectedItem.ToString() == "Tangente")
+                {
+                    textXd.Enabled = false;
+                }
+            }
+
+        }
     }
 }
