@@ -34,10 +34,11 @@ namespace RaicesDeFunciones
                 string metodo, funcion;
                 metodo = comboMetodos.Text;
                 funcion = textFuncion.Text;
-                double fx,xi,xd,xr,tolerancia,xrAnt,error;
+                double fx, xi, xd, xr, tolerancia, xrAnt,error;
                 xi = Convert.ToDouble(textXi.Text);
                 xd = string.IsNullOrEmpty(textXd.Text) ? 0 : Convert.ToDouble(textXd.Text);
-                tolerancia = Convert.ToDouble(textTolerancia.Text) * 0.01 / 100;
+                //tolerancia = Convert.ToDouble(textTolerancia.Text) * 0.01 / 100;
+                tolerancia = Convert.ToDouble(textTolerancia.Text);
                 xr = 0;
                 xrAnt = 0;
                 error = 0;
@@ -67,7 +68,7 @@ namespace RaicesDeFunciones
                                 textBoxRaiz.Text = xi.ToString();
                                 textBoxConverge.Text = "Si";
                                 textBoxCantIteracion.Text = "0";
-                                textBoxError.Text = error.ToString();
+                                textBoxError.Text = Math.Round(Convert.ToDecimal(error),6).ToString();
                                 MessageBox.Show("xi = " + xi + " es raíz", "Ejecución exitosa");
                             }
                             else
@@ -75,7 +76,7 @@ namespace RaicesDeFunciones
                                 textBoxRaiz.Text = xd.ToString();
                                 textBoxConverge.Text = "Si";
                                 textBoxCantIteracion.Text = "0";
-                                textBoxError.Text = error.ToString();
+                                textBoxError.Text = Math.Round(Convert.ToDecimal(error), 6).ToString();
                                 MessageBox.Show("xd = " + xd + " es raíz", "Ejecución exitosa");
                             }
                         }
@@ -92,7 +93,7 @@ namespace RaicesDeFunciones
                                     textBoxRaiz.Text = xr.ToString();
                                     textBoxConverge.Text = "Si";
                                     textBoxCantIteracion.Text = i.ToString();
-                                    textBoxError.Text = error.ToString();
+                                    textBoxError.Text = Math.Round(Convert.ToDecimal(error), 6).ToString();
                                     MessageBox.Show("xr = " + xr + " es raíz", "Ejecución exitosa");
                                     break;
                                 } 
@@ -111,7 +112,7 @@ namespace RaicesDeFunciones
                                 textBoxRaiz.Text = xr.ToString();
                                 textBoxConverge.Text = "Si";
                                 textBoxCantIteracion.Text = (i-1).ToString();
-                                textBoxError.Text = error.ToString();
+                                textBoxError.Text = Math.Round(Convert.ToDecimal(error), 6).ToString();
                                 MessageBox.Show(string.Format("Se toma como raíz xr = {0} porque se alcanzó el máximo de iteraciones ({1})", xr, iteraciones));
                             }
                         }
@@ -123,7 +124,7 @@ namespace RaicesDeFunciones
                             textBoxRaiz.Text = xi.ToString();
                             textBoxConverge.Text = "Si";
                             textBoxCantIteracion.Text = "0";
-                            textBoxError.Text = error.ToString();
+                            textBoxError.Text = Math.Round(Convert.ToDecimal(error), 6).ToString();
                             MessageBox.Show("xi = " + xi + " es raíz", "Ejecución exitosa");
                         }
                         else if (metodo == "Secante" && Math.Abs(analizaFuncion.EvaluaFx(xd)) < tolerancia)
@@ -131,7 +132,7 @@ namespace RaicesDeFunciones
                             textBoxRaiz.Text = xd.ToString();
                             textBoxConverge.Text = "Si";
                             textBoxCantIteracion.Text = "0";
-                            textBoxError.Text = error.ToString();
+                            textBoxError.Text = Math.Round(Convert.ToDecimal(error), 6).ToString();
                             MessageBox.Show("xd = " + xd + " es raíz", "Ejecución exitosa");
                         }
                         else
@@ -144,7 +145,7 @@ namespace RaicesDeFunciones
                                     textBoxRaiz.Text = xr.ToString();
                                     textBoxConverge.Text = "No";
                                     textBoxCantIteracion.Text = i.ToString();
-                                    textBoxError.Text = error.ToString();
+                                    textBoxError.Text = Math.Round(Convert.ToDecimal(error), 6).ToString(); ;
                                     MessageBox.Show("El método es divergente. No encuentra raíz");
                                     break;
                                 }
@@ -154,7 +155,7 @@ namespace RaicesDeFunciones
                                     textBoxRaiz.Text = xr.ToString();
                                     textBoxConverge.Text = "Si";
                                     textBoxCantIteracion.Text = i.ToString();
-                                    textBoxError.Text = error.ToString();
+                                    textBoxError.Text = Math.Round(Convert.ToDecimal(error), 6).ToString(); ;
                                     MessageBox.Show("xr = " + xr + " es raíz", "Ejecución exitosa");
                                     break;
                                 }
@@ -174,7 +175,7 @@ namespace RaicesDeFunciones
                                 textBoxRaiz.Text = xr.ToString();
                                 textBoxConverge.Text = "Si";
                                 textBoxCantIteracion.Text = (i - 1).ToString();
-                                textBoxError.Text = error.ToString();
+                                textBoxError.Text = Math.Round(Convert.ToDecimal(error), 6).ToString(); ;
                                 MessageBox.Show(string.Format("Se toma como raíz xr = {0} porque se alcanzó el máximo de iteraciones ({1})", xr, iteraciones));
                             }
                         }

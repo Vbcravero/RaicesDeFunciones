@@ -124,7 +124,7 @@
             this.textTolerancia.Name = "textTolerancia";
             this.textTolerancia.Size = new System.Drawing.Size(142, 22);
             this.textTolerancia.TabIndex = 7;
-            this.textTolerancia.Text = "0.0001";
+            this.textTolerancia.Text = "0,0001";
             // 
             // textXi
             // 

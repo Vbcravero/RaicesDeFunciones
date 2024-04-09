@@ -31,8 +31,8 @@ namespace RaicesDeFunciones
             }
             else  //metodo == "Tangente"
             {
-                var derivada = Math.Abs(Dx(xi));
-                if (derivada < 0.0001 || double.IsNaN(derivada)) 
+                var derivada = Dx(xi);
+                if (Math.Abs(derivada) < 0.0001 || double.IsNaN(derivada)) 
                 {
                     //MessageBox.Show("El método diverge. No encuentra raíz");
                     xr = double.NaN; 
