@@ -145,7 +145,15 @@ namespace RaicesDeFunciones
                                     textBoxRaiz.Text = xr.ToString();
                                     textBoxConverge.Text = "No";
                                     textBoxCantIteracion.Text = i.ToString();
-                                    textBoxError.Text = Math.Round(Convert.ToDecimal(error), 6).ToString(); ;
+                                    // Validar si el error es Nan no convertir
+                                    if (double.IsNaN(error))
+                                    {
+                                        textBoxError.Text = error.ToString();
+                                    }
+                                    else
+                                    {
+                                        textBoxError.Text = Math.Round(Convert.ToDecimal(error), 6).ToString(); ;
+                                    }
                                     MessageBox.Show("El método es divergente. No encuentra raíz");
                                     break;
                                 }
