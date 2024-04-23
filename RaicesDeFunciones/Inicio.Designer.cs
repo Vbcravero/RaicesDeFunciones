@@ -29,40 +29,40 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonMetCerrados = new System.Windows.Forms.Button();
-            this.buttonMetAbiertos = new System.Windows.Forms.Button();
+            this.buttonMatrices = new System.Windows.Forms.Button();
+            this.buttonRaizFx = new System.Windows.Forms.Button();
             this.imagen = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.buttonMetCerrados);
-            this.panel2.Controls.Add(this.buttonMetAbiertos);
+            this.panel2.Controls.Add(this.buttonMatrices);
+            this.panel2.Controls.Add(this.buttonRaizFx);
             this.panel2.Location = new System.Drawing.Point(1, 58);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 389);
             this.panel2.TabIndex = 1;
             // 
-            // buttonMetCerrados
+            // buttonMatrices
             // 
-            this.buttonMetCerrados.Location = new System.Drawing.Point(36, 176);
-            this.buttonMetCerrados.Name = "buttonMetCerrados";
-            this.buttonMetCerrados.Size = new System.Drawing.Size(135, 40);
-            this.buttonMetCerrados.TabIndex = 1;
-            this.buttonMetCerrados.Text = "Métodos Cerrados";
-            this.buttonMetCerrados.UseVisualStyleBackColor = true;
-            this.buttonMetCerrados.Click += new System.EventHandler(this.MetCerrados_Click);
+            this.buttonMatrices.Location = new System.Drawing.Point(27, 167);
+            this.buttonMatrices.Name = "buttonMatrices";
+            this.buttonMatrices.Size = new System.Drawing.Size(150, 40);
+            this.buttonMatrices.TabIndex = 1;
+            this.buttonMatrices.Text = "Matrices";
+            this.buttonMatrices.UseVisualStyleBackColor = true;
+            this.buttonMatrices.Click += new System.EventHandler(this.MetCerrados_Click);
             // 
-            // buttonMetAbiertos
+            // buttonRaizFx
             // 
-            this.buttonMetAbiertos.Location = new System.Drawing.Point(36, 116);
-            this.buttonMetAbiertos.Name = "buttonMetAbiertos";
-            this.buttonMetAbiertos.Size = new System.Drawing.Size(135, 40);
-            this.buttonMetAbiertos.TabIndex = 0;
-            this.buttonMetAbiertos.Text = "Métodos Abiertos";
-            this.buttonMetAbiertos.UseVisualStyleBackColor = true;
-            this.buttonMetAbiertos.Click += new System.EventHandler(this.MetAbiertos_Click);
+            this.buttonRaizFx.Location = new System.Drawing.Point(27, 112);
+            this.buttonRaizFx.Name = "buttonRaizFx";
+            this.buttonRaizFx.Size = new System.Drawing.Size(150, 40);
+            this.buttonRaizFx.TabIndex = 0;
+            this.buttonRaizFx.Text = "Raíces de Funciones";
+            this.buttonRaizFx.UseVisualStyleBackColor = true;
+            this.buttonRaizFx.Click += new System.EventHandler(this.MetAbiertos_Click);
             // 
             // imagen
             // 
@@ -89,7 +89,7 @@
         #endregion
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel imagen;
-        private System.Windows.Forms.Button buttonMetAbiertos;
-        private System.Windows.Forms.Button buttonMetCerrados;
+        private System.Windows.Forms.Button buttonRaizFx;
+        private System.Windows.Forms.Button buttonMatrices;
     }
 }
