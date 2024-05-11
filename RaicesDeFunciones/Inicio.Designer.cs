@@ -50,9 +50,9 @@
             this.buttonMatrices.Name = "buttonMatrices";
             this.buttonMatrices.Size = new System.Drawing.Size(150, 40);
             this.buttonMatrices.TabIndex = 1;
-            this.buttonMatrices.Text = "Matrices";
+            this.buttonMatrices.Text = "Sistemas de Ecuaciones";
             this.buttonMatrices.UseVisualStyleBackColor = true;
-            this.buttonMatrices.Click += new System.EventHandler(this.MetCerrados_Click);
+            this.buttonMatrices.Click += new System.EventHandler(this.SistEcuaciones_Click);
             // 
             // buttonRaizFx
             // 
@@ -62,7 +62,7 @@
             this.buttonRaizFx.TabIndex = 0;
             this.buttonRaizFx.Text = "Raíces de Funciones";
             this.buttonRaizFx.UseVisualStyleBackColor = true;
-            this.buttonRaizFx.Click += new System.EventHandler(this.MetAbiertos_Click);
+            this.buttonRaizFx.Click += new System.EventHandler(this.RaicesFx_Click);
             // 
             // imagen
             // 
@@ -81,6 +81,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "Inicio";
             this.Text = "Inicio";
+            this.Load += new System.EventHandler(this.Inicio_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -55,6 +55,7 @@
             this.metodoUtilizado = new System.Windows.Forms.Label();
             this.labelRaiz = new System.Windows.Forms.Label();
             this.buttonLimpiar = new System.Windows.Forms.Button();
+            this.buttonVolver = new System.Windows.Forms.Button();
             this.groupBoxEntrada.SuspendLayout();
             this.groupBoxSalida.SuspendLayout();
             this.SuspendLayout();
@@ -313,11 +314,22 @@
             this.buttonLimpiar.UseVisualStyleBackColor = true;
             this.buttonLimpiar.Click += new System.EventHandler(this.buttonLimpiar_Click);
             // 
+            // buttonVolver
+            // 
+            this.buttonVolver.Location = new System.Drawing.Point(15, 408);
+            this.buttonVolver.Name = "buttonVolver";
+            this.buttonVolver.Size = new System.Drawing.Size(80, 30);
+            this.buttonVolver.TabIndex = 15;
+            this.buttonVolver.Text = "Volver";
+            this.buttonVolver.UseVisualStyleBackColor = true;
+            this.buttonVolver.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonVolver);
             this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.groupBoxSalida);
             this.Controls.Add(this.groupBoxEntrada);
@@ -365,6 +377,7 @@
         private System.Windows.Forms.TextBox textBoxMetodo;
         private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.TextBox textBoxError;
+        private System.Windows.Forms.Button buttonVolver;
     }
 }
 

@@ -223,5 +223,12 @@ namespace RaicesDeFunciones
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Inicio irInicio = new Inicio();
+            irInicio.Show();
+            this.Hide();
+        }
     }
 }

@@ -32,9 +32,10 @@
             this.buttonGenerar = new System.Windows.Forms.Button();
             this.labelDimension = new System.Windows.Forms.Label();
             this.labelMetodo = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.buttonCalc = new System.Windows.Forms.Button();
+            this.cbMetodo = new System.Windows.Forms.ComboBox();
+            this.buttonCalcular = new System.Windows.Forms.Button();
             this.panelMatriz = new System.Windows.Forms.Panel();
+            this.buttonVolverInicio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textDimension
@@ -46,9 +47,9 @@
             // 
             // buttonGenerar
             // 
-            this.buttonGenerar.Location = new System.Drawing.Point(198, 15);
+            this.buttonGenerar.Location = new System.Drawing.Point(198, 11);
             this.buttonGenerar.Name = "buttonGenerar";
-            this.buttonGenerar.Size = new System.Drawing.Size(75, 23);
+            this.buttonGenerar.Size = new System.Drawing.Size(80, 30);
             this.buttonGenerar.TabIndex = 1;
             this.buttonGenerar.Text = "Generar";
             this.buttonGenerar.UseVisualStyleBackColor = true;
@@ -66,32 +67,33 @@
             // labelMetodo
             // 
             this.labelMetodo.AutoSize = true;
-            this.labelMetodo.Location = new System.Drawing.Point(447, 20);
+            this.labelMetodo.Location = new System.Drawing.Point(483, 18);
             this.labelMetodo.Name = "labelMetodo";
-            this.labelMetodo.Size = new System.Drawing.Size(53, 16);
+            this.labelMetodo.Size = new System.Drawing.Size(56, 16);
             this.labelMetodo.TabIndex = 3;
-            this.labelMetodo.Text = "Método";
+            this.labelMetodo.Text = "Método:";
             this.labelMetodo.Click += new System.EventHandler(this.labelMetodo_Click);
             // 
-            // comboBox1
+            // cbMetodo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbMetodo.FormattingEnabled = true;
+            this.cbMetodo.Items.AddRange(new object[] {
             "GAUSS-JORDAN",
             "GAUSS-SEIDEL"});
-            this.comboBox1.Location = new System.Drawing.Point(506, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 4;
+            this.cbMetodo.Location = new System.Drawing.Point(545, 13);
+            this.cbMetodo.Name = "cbMetodo";
+            this.cbMetodo.Size = new System.Drawing.Size(162, 24);
+            this.cbMetodo.TabIndex = 4;
             // 
-            // buttonCalc
+            // buttonCalcular
             // 
-            this.buttonCalc.Location = new System.Drawing.Point(656, 14);
-            this.buttonCalc.Name = "buttonCalc";
-            this.buttonCalc.Size = new System.Drawing.Size(75, 23);
-            this.buttonCalc.TabIndex = 5;
-            this.buttonCalc.Text = "Calcular";
-            this.buttonCalc.UseVisualStyleBackColor = true;
+            this.buttonCalcular.Location = new System.Drawing.Point(713, 10);
+            this.buttonCalcular.Name = "buttonCalcular";
+            this.buttonCalcular.Size = new System.Drawing.Size(80, 30);
+            this.buttonCalcular.TabIndex = 5;
+            this.buttonCalcular.Text = "Calcular";
+            this.buttonCalcular.UseVisualStyleBackColor = true;
+            this.buttonCalcular.Click += new System.EventHandler(this.buttonCalcular_Click);
             // 
             // panelMatriz
             // 
@@ -100,14 +102,25 @@
             this.panelMatriz.Size = new System.Drawing.Size(619, 379);
             this.panelMatriz.TabIndex = 6;
             // 
+            // buttonVolverInicio
+            // 
+            this.buttonVolverInicio.Location = new System.Drawing.Point(678, 403);
+            this.buttonVolverInicio.Name = "buttonVolverInicio";
+            this.buttonVolverInicio.Size = new System.Drawing.Size(75, 23);
+            this.buttonVolverInicio.TabIndex = 7;
+            this.buttonVolverInicio.Text = "Volver";
+            this.buttonVolverInicio.UseVisualStyleBackColor = true;
+            this.buttonVolverInicio.Click += new System.EventHandler(this.buttonVolverClick);
+            // 
             // Matriz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonVolverInicio);
             this.Controls.Add(this.panelMatriz);
-            this.Controls.Add(this.buttonCalc);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.buttonCalcular);
+            this.Controls.Add(this.cbMetodo);
             this.Controls.Add(this.labelMetodo);
             this.Controls.Add(this.labelDimension);
             this.Controls.Add(this.buttonGenerar);
@@ -125,8 +138,9 @@
         private System.Windows.Forms.Button buttonGenerar;
         private System.Windows.Forms.Label labelDimension;
         private System.Windows.Forms.Label labelMetodo;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button buttonCalc;
+        private System.Windows.Forms.ComboBox cbMetodo;
+        private System.Windows.Forms.Button buttonCalcular;
         private System.Windows.Forms.Panel panelMatriz;
+        private System.Windows.Forms.Button buttonVolverInicio;
     }
 }

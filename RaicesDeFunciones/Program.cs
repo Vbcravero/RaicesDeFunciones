@@ -16,7 +16,7 @@ namespace RaicesDeFunciones
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Matriz());
+            Application.Run(new Inicio());
         }
     }
 }

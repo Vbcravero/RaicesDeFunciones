@@ -24,15 +24,30 @@ namespace RaicesDeFunciones
 
         private void MetCerrados_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void MetAbiertos_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RaicesFx_Click(object sender, EventArgs e)
+        {
             Form1 irForm1 = new Form1();
             irForm1.Show();
             this.Hide();
         }
 
-        private void MetAbiertos_Click(object sender, EventArgs e)
+        private void SistEcuaciones_Click(object sender, EventArgs e)
         {
-            Form1 irForm1 = new Form1();
-            irForm1.Show();
+            Matriz irMatriz = new Matriz();
+            irMatriz.Show();
             this.Hide();
         }
     }
