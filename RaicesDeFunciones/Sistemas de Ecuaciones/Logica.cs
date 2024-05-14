@@ -45,7 +45,8 @@ namespace RaicesDeFunciones.Sistemas_de_Ecuaciones
                     coeficienteIncognita = resultado / coeficienteIncognita;
                     vectorResultado[row] = Math.Round(coeficienteIncognita,4); 
                 }
-                for(int i = 0; i < dimension; i++)
+                contadorMismoResult = 0;
+                for (int i = 0; i < dimension; i++)
                 {
                     errorRelativo = Math.Abs(((vectorResultado[i] - vectorAnterior[i]) / vectorResultado[i]));
                     if (errorRelativo < 0.0001)
