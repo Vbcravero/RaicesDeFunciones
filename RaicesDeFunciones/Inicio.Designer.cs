@@ -32,11 +32,13 @@
             this.buttonMatrices = new System.Windows.Forms.Button();
             this.buttonRaizFx = new System.Windows.Forms.Button();
             this.imagen = new System.Windows.Forms.Panel();
+            this.buttonAjusteCurva = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.buttonAjusteCurva);
             this.panel2.Controls.Add(this.buttonMatrices);
             this.panel2.Controls.Add(this.buttonRaizFx);
             this.panel2.Location = new System.Drawing.Point(1, 58);
@@ -72,6 +74,16 @@
             this.imagen.TabIndex = 2;
             this.imagen.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // buttonAjusteCurva
+            // 
+            this.buttonAjusteCurva.Location = new System.Drawing.Point(27, 225);
+            this.buttonAjusteCurva.Name = "buttonAjusteCurva";
+            this.buttonAjusteCurva.Size = new System.Drawing.Size(150, 40);
+            this.buttonAjusteCurva.TabIndex = 2;
+            this.buttonAjusteCurva.Text = "Ajuste de Curvas";
+            this.buttonAjusteCurva.UseVisualStyleBackColor = true;
+            this.buttonAjusteCurva.Click += new System.EventHandler(this.AjusteCurva_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -92,5 +104,6 @@
         private System.Windows.Forms.Panel imagen;
         private System.Windows.Forms.Button buttonRaizFx;
         private System.Windows.Forms.Button buttonMatrices;
+        private System.Windows.Forms.Button buttonAjusteCurva;
     }
 }

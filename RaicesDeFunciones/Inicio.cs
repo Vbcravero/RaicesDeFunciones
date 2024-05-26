@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RaicesDeFunciones.Ajuste_de_Curvas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,6 +49,13 @@ namespace RaicesDeFunciones
         {
             Matriz irMatriz = new Matriz();
             irMatriz.Show();
+            this.Hide();
+        }
+
+        private void AjusteCurva_Click(object sender, EventArgs e)
+        {
+            AjusteCurvasForm irAjusteCurva = new AjusteCurvasForm();
+            irAjusteCurva.Show();
             this.Hide();
         }
     }

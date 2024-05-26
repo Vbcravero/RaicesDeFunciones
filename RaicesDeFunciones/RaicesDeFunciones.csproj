@@ -50,10 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Ajuste de Curvas\AjusteCurvasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Ajuste de Curvas\AjusteCurvasForm.Designer.cs">
+      <DependentUpon>AjusteCurvasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ajuste de Curvas\Procedimiento.cs" />
+    <Compile Include="Raices de Funciones\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raices de Funciones\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
@@ -62,7 +69,7 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calc.cs" />
+    <Compile Include="Raices de Funciones\Calc.cs" />
     <Compile Include="Sistemas de Ecuaciones\Matriz.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,7 +79,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sistemas de Ecuaciones\Logica.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Ajuste de Curvas\AjusteCurvasForm.resx">
+      <DependentUpon>AjusteCurvasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raices de Funciones\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
