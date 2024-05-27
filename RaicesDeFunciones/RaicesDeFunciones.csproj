@@ -57,6 +57,7 @@
       <DependentUpon>AjusteCurvasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Ajuste de Curvas\Procedimiento.cs" />
+    <Compile Include="Ajuste de Curvas\Salida.cs" />
     <Compile Include="Raices de Funciones\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

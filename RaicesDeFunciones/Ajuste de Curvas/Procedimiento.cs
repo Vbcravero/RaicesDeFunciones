@@ -15,12 +15,6 @@ namespace RaicesDeFunciones.Ajuste_de_Curvas
             public int Grado { get; set; }
         }
 
-        public class  Salida
-        {
-            public string Funcion { get; set; }
-            //Agregar atributos restantes
-        }
-
         public class Datos
         {
             public int CantPuntos { get; set; }
@@ -37,7 +31,7 @@ namespace RaicesDeFunciones.Ajuste_de_Curvas
             double sumXY = 0;
             double sumX2 = 0;
 
-            foreach(double[] punto in entrada.PuntosCargados) 
+            foreach(double[] punto in entrada.PuntosCargados)
             {
                 sumX += punto[0];
                 sumY += punto[1];
@@ -56,12 +50,13 @@ namespace RaicesDeFunciones.Ajuste_de_Curvas
 
             //if (metodo == 0)
             return RegresionLineal(datos, entrada);
+            //Agregar otro método
              
         }
     
         public static Salida RegresionLineal(Datos datos, Entrada entrada)
         {
-            double a1 = (datos.CantPuntos * datos.SumXY - datos.SumX * datos.SumY) / (datos.CantPuntos * datos.SumX2 - Math.Pow(datos.SumX2,2));
+            double a1 = (datos.CantPuntos * datos.SumXY - datos.SumX * datos.SumY) / (datos.CantPuntos * datos.SumX2 - Math.Pow(datos.SumX,2));
             double a0 = (datos.SumY / datos.CantPuntos) - a1 * (datos.SumX / datos.CantPuntos);
 
             // Agregar restante

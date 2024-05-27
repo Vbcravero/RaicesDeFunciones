@@ -44,8 +44,8 @@
             this.btCalcular = new System.Windows.Forms.Button();
             this.btAgregar = new System.Windows.Forms.Button();
             this.gbSalidas = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tbFuncion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btVolver = new System.Windows.Forms.Button();
             this.gbPoints.SuspendLayout();
             this.gbEntradas.SuspendLayout();
@@ -191,6 +191,7 @@
             this.btCalcular.TabIndex = 5;
             this.btCalcular.Text = "Calcular";
             this.btCalcular.UseVisualStyleBackColor = true;
+            this.btCalcular.Click += new System.EventHandler(this.btCalcular_Click);
             // 
             // btAgregar
             // 
@@ -213,6 +214,13 @@
             this.gbSalidas.TabStop = false;
             this.gbSalidas.Text = "Salidas";
             // 
+            // tbFuncion
+            // 
+            this.tbFuncion.Location = new System.Drawing.Point(68, 21);
+            this.tbFuncion.Name = "tbFuncion";
+            this.tbFuncion.Size = new System.Drawing.Size(434, 22);
+            this.tbFuncion.TabIndex = 1;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -221,13 +229,6 @@
             this.label1.Size = new System.Drawing.Size(57, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Función:";
-            // 
-            // tbFuncion
-            // 
-            this.tbFuncion.Location = new System.Drawing.Point(68, 21);
-            this.tbFuncion.Name = "tbFuncion";
-            this.tbFuncion.Size = new System.Drawing.Size(434, 22);
-            this.tbFuncion.TabIndex = 1;
             // 
             // btVolver
             // 
