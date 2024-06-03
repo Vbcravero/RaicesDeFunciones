@@ -8,14 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static RaicesDeFunciones.Ajuste_de_Curvas.Procedimiento;
+using Analisis_Numerico;
 
 namespace RaicesDeFunciones.Ajuste_de_Curvas
 {
     public partial class AjusteCurvasForm : Form
     {
+        Graficador graficador = new Graficador();
         public AjusteCurvasForm()
         {
             InitializeComponent();
+            SetPanelGrafica();
+        }
+
+        private void SetPanelGrafica()
+        {
+            pnlGrafica.Controls.Clear();
+            this.graficador = new Graficador();
+            pnlGrafica.Controls.Add(graficador);
+            graficador.Dock = DockStyle.Fill;
         }
 
         public List<double[]> PuntosCargados { get; set; }
@@ -76,14 +87,16 @@ namespace RaicesDeFunciones.Ajuste_de_Curvas
         {
             Procedimiento.Entrada entrada = new Procedimiento.Entrada();
             entrada.PuntosCargados = PuntosCargados;
-            // Asignar el resto de atributos de entrada
+            entrada.Tolerancia = double.Parse(tbTolerancia.Text);
+            entrada.Grado = cbMetodos.SelectedIndex == 1 ? Convert.ToInt32(nudGrado.Value) : 0;
+
             switch (cbMetodos.SelectedIndex)
             {
                 case 0:
-                    MostrarResultados(Resolucion(entrada,0));
+                    MostrarResultados(Resolucion(entrada, 0));
                     break;
                 case 1:
-                    MostrarResultados(Resolucion(entrada,1));
+                    MostrarResultados(Resolucion(entrada, 1));
                     break;
                 default:
                     break;
@@ -92,16 +105,51 @@ namespace RaicesDeFunciones.Ajuste_de_Curvas
 
         private void MostrarResultados(Salida salida)
         {
+            // ver el mensaje de error
             tbFuncion.Text = salida.Funcion;
-            //Agregar lógica restante
+            tbEfectividad.Text = salida.CoefCorrelacion.ToString();
+            tbEfecAjuste.Text = salida.EfectividadAjuste ? "Aceptable" : "No Aceptable";
+
+            graficador.Graficar(PuntosCargados, salida.FuncionGraficador);
         }
 
-        // Método para desahabilitar entradas según método elegido
         // Botón limpiar
-        // Botón volver
+
+        private void cbMetodos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbMetodos.SelectedIndex == 0)
+            {
+                nudGrado.Enabled = false;
+            }
+            if (cbMetodos.SelectedIndex == 1)
+            {
+                nudGrado.Enabled = true;
+            }
+        }
+
+        private void btVolver_Click(object sender, EventArgs e)
+        {
+            Inicio irInicio = new Inicio();
+            irInicio.Show();
+            this.Hide();
+        }
+
+        private void btLimpiar_Click(object sender, EventArgs e)
+        {
+            cbMetodos.SelectedIndex = -1;
+            tbFuncion.Clear();
+            tbEfectividad.Clear();
+            tbEfecAjuste.Clear();
+            PuntosCargados.Clear();
+            RefreshListBox();
+            SetPanelGrafica();
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }

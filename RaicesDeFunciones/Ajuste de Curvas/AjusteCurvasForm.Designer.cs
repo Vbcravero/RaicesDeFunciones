@@ -39,16 +39,27 @@
             this.lbxPoints = new System.Windows.Forms.ListBox();
             this.btDelSelect = new System.Windows.Forms.Button();
             this.gbEntradas = new System.Windows.Forms.GroupBox();
+            this.nudGrado = new System.Windows.Forms.NumericUpDown();
+            this.lbGrado = new System.Windows.Forms.Label();
+            this.lbTolerancia = new System.Windows.Forms.Label();
+            this.tbTolerancia = new System.Windows.Forms.TextBox();
             this.lbMetodo = new System.Windows.Forms.Label();
             this.cbMetodos = new System.Windows.Forms.ComboBox();
             this.btCalcular = new System.Windows.Forms.Button();
             this.btAgregar = new System.Windows.Forms.Button();
             this.gbSalidas = new System.Windows.Forms.GroupBox();
+            this.tbEfecAjuste = new System.Windows.Forms.TextBox();
+            this.lbEfecAjuste = new System.Windows.Forms.Label();
+            this.lbEfectividad = new System.Windows.Forms.Label();
+            this.tbEfectividad = new System.Windows.Forms.TextBox();
             this.tbFuncion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btVolver = new System.Windows.Forms.Button();
+            this.pnlGrafica = new System.Windows.Forms.Panel();
+            this.btLimpiar = new System.Windows.Forms.Button();
             this.gbPoints.SuspendLayout();
             this.gbEntradas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGrado)).BeginInit();
             this.gbSalidas.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +98,7 @@
             // 
             // btDelUlt
             // 
-            this.btDelUlt.Location = new System.Drawing.Point(146, 70);
+            this.btDelUlt.Location = new System.Drawing.Point(146, 48);
             this.btDelUlt.Name = "btDelUlt";
             this.btDelUlt.Size = new System.Drawing.Size(120, 40);
             this.btDelUlt.TabIndex = 4;
@@ -97,7 +108,7 @@
             // 
             // btDelTodo
             // 
-            this.btDelTodo.Location = new System.Drawing.Point(146, 181);
+            this.btDelTodo.Location = new System.Drawing.Point(146, 171);
             this.btDelTodo.Name = "btDelTodo";
             this.btDelTodo.Size = new System.Drawing.Size(120, 40);
             this.btDelTodo.TabIndex = 5;
@@ -114,7 +125,7 @@
             this.gbPoints.Controls.Add(this.btDelUlt);
             this.gbPoints.Location = new System.Drawing.Point(522, 3);
             this.gbPoints.Name = "gbPoints";
-            this.gbPoints.Size = new System.Drawing.Size(276, 250);
+            this.gbPoints.Size = new System.Drawing.Size(276, 233);
             this.gbPoints.TabIndex = 6;
             this.gbPoints.TabStop = false;
             this.gbPoints.Text = "Puntos: 0";
@@ -134,12 +145,12 @@
             this.lbxPoints.ItemHeight = 16;
             this.lbxPoints.Location = new System.Drawing.Point(6, 21);
             this.lbxPoints.Name = "lbxPoints";
-            this.lbxPoints.Size = new System.Drawing.Size(134, 212);
+            this.lbxPoints.Size = new System.Drawing.Size(134, 196);
             this.lbxPoints.TabIndex = 9;
             // 
             // btDelSelect
             // 
-            this.btDelSelect.Location = new System.Drawing.Point(146, 126);
+            this.btDelSelect.Location = new System.Drawing.Point(146, 110);
             this.btDelSelect.Name = "btDelSelect";
             this.btDelSelect.Size = new System.Drawing.Size(120, 40);
             this.btDelSelect.TabIndex = 6;
@@ -149,6 +160,10 @@
             // 
             // gbEntradas
             // 
+            this.gbEntradas.Controls.Add(this.nudGrado);
+            this.gbEntradas.Controls.Add(this.lbGrado);
+            this.gbEntradas.Controls.Add(this.lbTolerancia);
+            this.gbEntradas.Controls.Add(this.tbTolerancia);
             this.gbEntradas.Controls.Add(this.lbMetodo);
             this.gbEntradas.Controls.Add(this.cbMetodos);
             this.gbEntradas.Controls.Add(this.btCalcular);
@@ -164,6 +179,44 @@
             this.gbEntradas.TabStop = false;
             this.gbEntradas.Text = "Entradas";
             // 
+            // nudGrado
+            // 
+            this.nudGrado.Location = new System.Drawing.Point(214, 101);
+            this.nudGrado.Name = "nudGrado";
+            this.nudGrado.Size = new System.Drawing.Size(61, 22);
+            this.nudGrado.TabIndex = 12;
+            this.nudGrado.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // lbGrado
+            // 
+            this.lbGrado.AutoSize = true;
+            this.lbGrado.Location = new System.Drawing.Point(163, 104);
+            this.lbGrado.Name = "lbGrado";
+            this.lbGrado.Size = new System.Drawing.Size(48, 16);
+            this.lbGrado.TabIndex = 10;
+            this.lbGrado.Text = "Grado:";
+            // 
+            // lbTolerancia
+            // 
+            this.lbTolerancia.AutoSize = true;
+            this.lbTolerancia.Location = new System.Drawing.Point(6, 104);
+            this.lbTolerancia.Name = "lbTolerancia";
+            this.lbTolerancia.Size = new System.Drawing.Size(78, 16);
+            this.lbTolerancia.TabIndex = 9;
+            this.lbTolerancia.Text = "Tolerancia: ";
+            // 
+            // tbTolerancia
+            // 
+            this.tbTolerancia.Location = new System.Drawing.Point(90, 101);
+            this.tbTolerancia.Name = "tbTolerancia";
+            this.tbTolerancia.Size = new System.Drawing.Size(67, 22);
+            this.tbTolerancia.TabIndex = 8;
+            this.tbTolerancia.Text = "80";
+            // 
             // lbMetodo
             // 
             this.lbMetodo.AutoSize = true;
@@ -177,15 +230,17 @@
             // 
             this.cbMetodos.FormattingEnabled = true;
             this.cbMetodos.Items.AddRange(new object[] {
-            "Regresión lineal"});
+            "Regresión Lineal",
+            "Regresión Polinomial"});
             this.cbMetodos.Location = new System.Drawing.Point(68, 62);
             this.cbMetodos.Name = "cbMetodos";
             this.cbMetodos.Size = new System.Drawing.Size(207, 24);
             this.cbMetodos.TabIndex = 6;
+            this.cbMetodos.SelectedIndexChanged += new System.EventHandler(this.cbMetodos_SelectedIndexChanged);
             // 
             // btCalcular
             // 
-            this.btCalcular.Location = new System.Drawing.Point(299, 60);
+            this.btCalcular.Location = new System.Drawing.Point(299, 95);
             this.btCalcular.Name = "btCalcular";
             this.btCalcular.Size = new System.Drawing.Size(75, 29);
             this.btCalcular.TabIndex = 5;
@@ -205,20 +260,56 @@
             // 
             // gbSalidas
             // 
+            this.gbSalidas.Controls.Add(this.tbEfecAjuste);
+            this.gbSalidas.Controls.Add(this.lbEfecAjuste);
+            this.gbSalidas.Controls.Add(this.lbEfectividad);
+            this.gbSalidas.Controls.Add(this.tbEfectividad);
             this.gbSalidas.Controls.Add(this.tbFuncion);
             this.gbSalidas.Controls.Add(this.label1);
             this.gbSalidas.Location = new System.Drawing.Point(3, 144);
             this.gbSalidas.Name = "gbSalidas";
-            this.gbSalidas.Size = new System.Drawing.Size(513, 109);
+            this.gbSalidas.Size = new System.Drawing.Size(513, 92);
             this.gbSalidas.TabIndex = 8;
             this.gbSalidas.TabStop = false;
             this.gbSalidas.Text = "Salidas";
             // 
+            // tbEfecAjuste
+            // 
+            this.tbEfecAjuste.Location = new System.Drawing.Point(357, 52);
+            this.tbEfecAjuste.Name = "tbEfecAjuste";
+            this.tbEfecAjuste.Size = new System.Drawing.Size(145, 22);
+            this.tbEfecAjuste.TabIndex = 5;
+            // 
+            // lbEfecAjuste
+            // 
+            this.lbEfecAjuste.AutoSize = true;
+            this.lbEfecAjuste.Location = new System.Drawing.Point(213, 55);
+            this.lbEfecAjuste.Name = "lbEfecAjuste";
+            this.lbEfecAjuste.Size = new System.Drawing.Size(138, 16);
+            this.lbEfecAjuste.TabIndex = 4;
+            this.lbEfecAjuste.Text = "Efectividad del ajuste:";
+            // 
+            // lbEfectividad
+            // 
+            this.lbEfectividad.AutoSize = true;
+            this.lbEfectividad.Location = new System.Drawing.Point(9, 55);
+            this.lbEfectividad.Name = "lbEfectividad";
+            this.lbEfectividad.Size = new System.Drawing.Size(92, 16);
+            this.lbEfectividad.TabIndex = 3;
+            this.lbEfectividad.Text = "Efectividad %:";
+            // 
+            // tbEfectividad
+            // 
+            this.tbEfectividad.Location = new System.Drawing.Point(108, 52);
+            this.tbEfectividad.Name = "tbEfectividad";
+            this.tbEfectividad.Size = new System.Drawing.Size(92, 22);
+            this.tbEfectividad.TabIndex = 2;
+            // 
             // tbFuncion
             // 
-            this.tbFuncion.Location = new System.Drawing.Point(68, 21);
+            this.tbFuncion.Location = new System.Drawing.Point(72, 21);
             this.tbFuncion.Name = "tbFuncion";
-            this.tbFuncion.Size = new System.Drawing.Size(434, 22);
+            this.tbFuncion.Size = new System.Drawing.Size(430, 22);
             this.tbFuncion.TabIndex = 1;
             // 
             // label1
@@ -232,18 +323,38 @@
             // 
             // btVolver
             // 
-            this.btVolver.Location = new System.Drawing.Point(712, 415);
+            this.btVolver.Location = new System.Drawing.Point(3, 460);
             this.btVolver.Name = "btVolver";
-            this.btVolver.Size = new System.Drawing.Size(75, 23);
+            this.btVolver.Size = new System.Drawing.Size(75, 29);
             this.btVolver.TabIndex = 9;
             this.btVolver.Text = "Volver";
             this.btVolver.UseVisualStyleBackColor = true;
+            this.btVolver.Click += new System.EventHandler(this.btVolver_Click);
+            // 
+            // pnlGrafica
+            // 
+            this.pnlGrafica.Location = new System.Drawing.Point(3, 243);
+            this.pnlGrafica.Name = "pnlGrafica";
+            this.pnlGrafica.Size = new System.Drawing.Size(795, 211);
+            this.pnlGrafica.TabIndex = 10;
+            // 
+            // btLimpiar
+            // 
+            this.btLimpiar.Location = new System.Drawing.Point(723, 460);
+            this.btLimpiar.Name = "btLimpiar";
+            this.btLimpiar.Size = new System.Drawing.Size(75, 29);
+            this.btLimpiar.TabIndex = 11;
+            this.btLimpiar.Text = "Limpiar";
+            this.btLimpiar.UseVisualStyleBackColor = true;
+            this.btLimpiar.Click += new System.EventHandler(this.btLimpiar_Click);
             // 
             // AjusteCurvasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 492);
+            this.Controls.Add(this.btLimpiar);
+            this.Controls.Add(this.pnlGrafica);
             this.Controls.Add(this.btVolver);
             this.Controls.Add(this.gbSalidas);
             this.Controls.Add(this.gbEntradas);
@@ -254,6 +365,7 @@
             this.gbPoints.PerformLayout();
             this.gbEntradas.ResumeLayout(false);
             this.gbEntradas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGrado)).EndInit();
             this.gbSalidas.ResumeLayout(false);
             this.gbSalidas.PerformLayout();
             this.ResumeLayout(false);
@@ -281,5 +393,15 @@
         private System.Windows.Forms.TextBox tbFuncion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btVolver;
+        private System.Windows.Forms.Label lbTolerancia;
+        private System.Windows.Forms.TextBox tbTolerancia;
+        private System.Windows.Forms.Label lbGrado;
+        private System.Windows.Forms.Label lbEfecAjuste;
+        private System.Windows.Forms.Label lbEfectividad;
+        private System.Windows.Forms.TextBox tbEfectividad;
+        private System.Windows.Forms.TextBox tbEfecAjuste;
+        private System.Windows.Forms.NumericUpDown nudGrado;
+        private System.Windows.Forms.Panel pnlGrafica;
+        private System.Windows.Forms.Button btLimpiar;
     }
 }

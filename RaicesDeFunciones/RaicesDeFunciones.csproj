@@ -56,6 +56,12 @@
     <Compile Include="Ajuste de Curvas\AjusteCurvasForm.Designer.cs">
       <DependentUpon>AjusteCurvasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ajuste de Curvas\Graficador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ajuste de Curvas\Graficador.Designer.cs">
+      <DependentUpon>Graficador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ajuste de Curvas\Procedimiento.cs" />
     <Compile Include="Ajuste de Curvas\Salida.cs" />
     <Compile Include="Raices de Funciones\Form1.cs">
@@ -82,6 +88,9 @@
     <Compile Include="Sistemas de Ecuaciones\Logica.cs" />
     <EmbeddedResource Include="Ajuste de Curvas\AjusteCurvasForm.resx">
       <DependentUpon>AjusteCurvasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ajuste de Curvas\Graficador.resx">
+      <DependentUpon>Graficador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Raices de Funciones\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
