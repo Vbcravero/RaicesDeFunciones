@@ -12,5 +12,6 @@ namespace RaicesDeFunciones.Integracion_Numerica
         public double a { get; set; }
         public double b { get; set; }
         public int cantSubintervalos { get; set; }
+        public double nuevoA { get; set; }
     }
 }

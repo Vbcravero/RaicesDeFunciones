@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.gbEntradas = new System.Windows.Forms.GroupBox();
+            this.nudCantSI = new System.Windows.Forms.NumericUpDown();
             this.btCalcular = new System.Windows.Forms.Button();
             this.lbCantSubinter = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbMetodos = new System.Windows.Forms.ComboBox();
             this.lbMetodo = new System.Windows.Forms.Label();
             this.txtB = new System.Windows.Forms.TextBox();
             this.txtA = new System.Windows.Forms.TextBox();
@@ -39,10 +40,11 @@
             this.lbA = new System.Windows.Forms.Label();
             this.lbFx = new System.Windows.Forms.Label();
             this.txtFx = new System.Windows.Forms.TextBox();
-            this.nudCantSI = new System.Windows.Forms.NumericUpDown();
             this.gbSalidas = new System.Windows.Forms.GroupBox();
-            this.lbArea = new System.Windows.Forms.Label();
             this.txtArea = new System.Windows.Forms.TextBox();
+            this.lbArea = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btLimpiar = new System.Windows.Forms.Button();
             this.gbEntradas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantSI)).BeginInit();
             this.gbSalidas.SuspendLayout();
@@ -50,10 +52,11 @@
             // 
             // gbEntradas
             // 
+            this.gbEntradas.Controls.Add(this.btLimpiar);
             this.gbEntradas.Controls.Add(this.nudCantSI);
             this.gbEntradas.Controls.Add(this.btCalcular);
             this.gbEntradas.Controls.Add(this.lbCantSubinter);
-            this.gbEntradas.Controls.Add(this.comboBox1);
+            this.gbEntradas.Controls.Add(this.cbMetodos);
             this.gbEntradas.Controls.Add(this.lbMetodo);
             this.gbEntradas.Controls.Add(this.txtB);
             this.gbEntradas.Controls.Add(this.txtA);
@@ -67,6 +70,13 @@
             this.gbEntradas.TabIndex = 0;
             this.gbEntradas.TabStop = false;
             this.gbEntradas.Text = "Entradas";
+            // 
+            // nudCantSI
+            // 
+            this.nudCantSI.Location = new System.Drawing.Point(203, 146);
+            this.nudCantSI.Name = "nudCantSI";
+            this.nudCantSI.Size = new System.Drawing.Size(277, 22);
+            this.nudCantSI.TabIndex = 10;
             // 
             // btCalcular
             // 
@@ -87,19 +97,20 @@
             this.lbCantSubinter.TabIndex = 8;
             this.lbCantSubinter.Text = "Cantidad de subintervalos (n):";
             // 
-            // comboBox1
+            // cbMetodos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbMetodos.FormattingEnabled = true;
+            this.cbMetodos.Items.AddRange(new object[] {
             "Trapecio simple",
             "Trapecios múltiples",
             "Simpson 1/3 simple",
             "Simpson 1/3 múltiples",
             "Simpson 3/8 simple"});
-            this.comboBox1.Location = new System.Drawing.Point(89, 102);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(391, 24);
-            this.comboBox1.TabIndex = 7;
+            this.cbMetodos.Location = new System.Drawing.Point(89, 102);
+            this.cbMetodos.Name = "cbMetodos";
+            this.cbMetodos.Size = new System.Drawing.Size(391, 24);
+            this.cbMetodos.TabIndex = 7;
+            this.cbMetodos.SelectedIndexChanged += new System.EventHandler(this.cbMetodo_SelectedIndexChanged);
             // 
             // lbMetodo
             // 
@@ -158,23 +169,23 @@
             this.txtFx.Size = new System.Drawing.Size(391, 22);
             this.txtFx.TabIndex = 0;
             // 
-            // nudCantSI
-            // 
-            this.nudCantSI.Location = new System.Drawing.Point(203, 146);
-            this.nudCantSI.Name = "nudCantSI";
-            this.nudCantSI.Size = new System.Drawing.Size(277, 22);
-            this.nudCantSI.TabIndex = 10;
-            // 
             // gbSalidas
             // 
             this.gbSalidas.Controls.Add(this.txtArea);
             this.gbSalidas.Controls.Add(this.lbArea);
             this.gbSalidas.Location = new System.Drawing.Point(13, 240);
             this.gbSalidas.Name = "gbSalidas";
-            this.gbSalidas.Size = new System.Drawing.Size(775, 198);
+            this.gbSalidas.Size = new System.Drawing.Size(775, 163);
             this.gbSalidas.TabIndex = 1;
             this.gbSalidas.TabStop = false;
             this.gbSalidas.Text = "Salidas";
+            // 
+            // txtArea
+            // 
+            this.txtArea.Location = new System.Drawing.Point(89, 27);
+            this.txtArea.Name = "txtArea";
+            this.txtArea.Size = new System.Drawing.Size(391, 22);
+            this.txtArea.TabIndex = 1;
             // 
             // lbArea
             // 
@@ -185,18 +196,32 @@
             this.lbArea.TabIndex = 0;
             this.lbArea.Text = "Área:";
             // 
-            // txtArea
+            // button1
             // 
-            this.txtArea.Location = new System.Drawing.Point(89, 27);
-            this.txtArea.Name = "txtArea";
-            this.txtArea.Size = new System.Drawing.Size(391, 22);
-            this.txtArea.TabIndex = 1;
+            this.button1.Location = new System.Drawing.Point(13, 409);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 29);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Volver";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btLimpiar
+            // 
+            this.btLimpiar.Location = new System.Drawing.Point(684, 176);
+            this.btLimpiar.Name = "btLimpiar";
+            this.btLimpiar.Size = new System.Drawing.Size(75, 29);
+            this.btLimpiar.TabIndex = 11;
+            this.btLimpiar.Text = "Limpiar";
+            this.btLimpiar.UseVisualStyleBackColor = true;
+            this.btLimpiar.Click += new System.EventHandler(this.btLimpiar_Click);
             // 
             // IntegracionNumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.gbSalidas);
             this.Controls.Add(this.gbEntradas);
             this.Name = "IntegracionNumForm";
@@ -219,7 +244,7 @@
         private System.Windows.Forms.Label lbA;
         private System.Windows.Forms.Label lbFx;
         private System.Windows.Forms.TextBox txtFx;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbMetodos;
         private System.Windows.Forms.Label lbMetodo;
         private System.Windows.Forms.Button btCalcular;
         private System.Windows.Forms.Label lbCantSubinter;
@@ -227,5 +252,7 @@
         private System.Windows.Forms.GroupBox gbSalidas;
         private System.Windows.Forms.TextBox txtArea;
         private System.Windows.Forms.Label lbArea;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btLimpiar;
     }
 }

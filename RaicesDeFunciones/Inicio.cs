@@ -1,4 +1,5 @@
 ﻿using RaicesDeFunciones.Ajuste_de_Curvas;
+using RaicesDeFunciones.Integracion_Numerica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,6 +57,13 @@ namespace RaicesDeFunciones
         {
             AjusteCurvasForm irAjusteCurva = new AjusteCurvasForm();
             irAjusteCurva.Show();
+            this.Hide();
+        }
+
+        private void buttonIntegracionNum_Click(object sender, EventArgs e)
+        {
+            IntegracionNumForm irIntegracionNum = new IntegracionNumForm();
+            irIntegracionNum.Show();
             this.Hide();
         }
     }
