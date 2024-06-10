@@ -51,7 +51,7 @@ namespace RaicesDeFunciones.Integracion_Numerica
                         break;
                 }
 
-                txtArea.Text = result.ToString();
+                txtArea.Text = Math.Round(result,4).ToString();
             }
             else
             {
@@ -97,12 +97,9 @@ namespace RaicesDeFunciones.Integracion_Numerica
             nudCantSI.Enabled = true;
             nudCantSI.Value = 0;
             txtArea.Clear();
-
-            // si se agrega txt de la combinación borrar
         }
     }
 }
 
 // Validar campos vacíos
 // Revisar fórmula en métodos 3/8.
-// Ver la combinación

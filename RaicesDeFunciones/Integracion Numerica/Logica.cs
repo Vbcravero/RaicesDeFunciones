@@ -67,7 +67,7 @@ namespace RaicesDeFunciones.Integracion_Numerica
 
         public double Simpson38Simple(Input input)
         {
-            if(input.nuevoA != double.NaN)
+            if(!double.IsNaN(input.nuevoA))
             {
                 input.a = input.nuevoA;
             }
