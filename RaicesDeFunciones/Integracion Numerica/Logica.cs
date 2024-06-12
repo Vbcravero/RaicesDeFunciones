@@ -42,12 +42,14 @@ namespace RaicesDeFunciones.Integracion_Numerica
             double sumInpar = 0;
             double resultado = 0;
             bool simpson38Hecho = false;
+            var b = input.b;
 
             for (int i = 1; i < input.cantSubintervalos; i ++)
             {
                 if(input.cantSubintervalos % 2 != 0 && !simpson38Hecho)
                 {
                     input.nuevoA = input.a + h * (input.cantSubintervalos - 3); // b - 3 * h
+                    b = input.nuevoA;
                     resultado = Simpson38Simple(input);
                     input.cantSubintervalos = input.cantSubintervalos - 3;
                     simpson38Hecho = true;
@@ -61,18 +63,19 @@ namespace RaicesDeFunciones.Integracion_Numerica
                     sumInpar += EvaluaFx(input.a + h * i);
                 }
             }
-            resultado += (h / 3) * (EvaluaFx(input.a) + 4 * sumInpar + 2 * sumPar + EvaluaFx(input.b));
+            resultado += (h / 3) * (EvaluaFx(input.a) + 4 * sumInpar + 2 * sumPar + EvaluaFx(b));
             return resultado;
         }
 
         public double Simpson38Simple(Input input)
         {
+            var a = input.a;
             if(!double.IsNaN(input.nuevoA))
             {
-                input.a = input.nuevoA;
+                a = input.nuevoA;
             }
-            double h = (input.b - input.a) / 3;
-            double resultado = (3*h/8) * (EvaluaFx(input.a) + 3 * EvaluaFx(input.a + h) + 3 * EvaluaFx(input.a + 2*h) + EvaluaFx(input.b));
+            double h = (input.b - a) / 3;
+            double resultado = (3*h/8) * (EvaluaFx(a) + 3 * EvaluaFx(a + h) + 3 * EvaluaFx(a + 2*h) + EvaluaFx(input.b));
             return resultado;
         }
     }

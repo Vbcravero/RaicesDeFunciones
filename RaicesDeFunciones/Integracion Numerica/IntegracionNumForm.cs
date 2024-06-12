@@ -101,5 +101,4 @@ namespace RaicesDeFunciones.Integracion_Numerica
     }
 }
 
-// Validar campos vacíos
-// Revisar fórmula en métodos 3/8.
+
